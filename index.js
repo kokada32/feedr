@@ -68,6 +68,15 @@ function displayWeather () {
   $("#weatherTitle").text(apiWeatherData.title);
   $("#weatherTemp").text(Math.round((weather.the_temp * 9/5) + 32) + " degrees");
   $("#weatherState").text(weather.weather_state_name);
+  $("#weatherTitle").css("text-align", "center");
+  $("#weatherTitle").css("width", "100%");
+  $("#weatherTitle").css("font-size", "30px");
+  $("#weatherTemp").css("width", "100%");
+  $("#weatherTemp").css("font-size", "20px");
+  $("#weatherTemp").css("text-align", "right");
+  $("#weatherState").css("font-size", "20px");
+  $("#weatherTemp").css("position", "unset");
+  $("#weatherState").css("position", "unset");
 }
 
 $.get(
@@ -119,6 +128,7 @@ $("#firstSource").on("click", () => {
       apiData = results;
       pageSource = "LA"
       displayNewsAPI(apiData);
+      $("#sourceName").text("Los Angeles")
       }
     );
 
@@ -142,6 +152,7 @@ $("#secondSource").on("click", function () {
         apiData = results;
         pageSource = "NY";
         displayNewsAPI(apiData);
+        $("#sourceName").text("New York");
       }
     );
 
